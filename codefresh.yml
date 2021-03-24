@@ -10,6 +10,6 @@ steps:
     title: Building Docker Image...
     type: build
     image_name: trogo/cloud-utils
-    tag: '0.0.6'
+    tags: [ 'latest', '0.0.3' ]
     dockerfile: Dockerfile.cloud-utils
     registry: dockerhub
