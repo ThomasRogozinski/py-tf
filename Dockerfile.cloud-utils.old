@@ -30,8 +30,8 @@ RUN apk update && \
 
 
 VOLUME ["/data"]
-CMD ["--help"]
 WORKDIR /data
+CMD ["--help"]
 
 RUN apk update && \
     apk --no-cache add gcc musl-dev yaml-dev yaml jq git ca-certificates openssl unzip wget && \
