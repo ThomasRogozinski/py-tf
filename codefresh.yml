@@ -12,5 +12,4 @@ steps:
     image_name: trogo/cloud-utils
     tags: [ 'latest', '0.0.5' ]
     dockerfile: Dockerfile.cloud-utils
-    working_directory: '${{clone}}'
     registry: dockerhub
