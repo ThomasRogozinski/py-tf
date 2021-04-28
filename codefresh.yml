@@ -1,13 +1,15 @@
 version: "1.0"
 
 stages:
+  - clone
   - build
+  - push
   - test
 
 steps:
   main_clone:
     title: Cloning repository...
-    stage: build
+    stage: clone
     type: git-clone
     repo: '${{CF_REPO_OWNER}}/${{CF_REPO_NAME}}'
     revision: '${{CF_REVISION}}'
@@ -16,12 +18,9 @@ steps:
     stage: build
     type: build
     image_name: cf-utils
-    tags: [ 'latest', '0.0.2' ]
+    tag: 'latest'
     dockerfile: Dockerfile.cf-utils
-    registry: aprart-docker.artifactory.gcp.anz
-    credentials:
-      username: "robot-clp-pipeline"
-      password: "${{robot-clp-pipeline}}" 
+    disable_push: true
   test:
     title: Testing Docker Image...
     stage: test
